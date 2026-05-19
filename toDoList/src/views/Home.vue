@@ -5,22 +5,22 @@ import { ref, onMounted } from "vue";
 import { useCardStore } from "../stores/card";
 import AddPanel from "../components/AddPanel.vue";
 
-const { confirm, cards, tempSelectedItem, selectedCardList, removeCard } = useHomeConfirm();
-const store = useCardStore()
-const showPanel = ref(false)
+const { confirm, cards, tempSelectedId, selectedCardList, removeCard } =
+  useHomeConfirm();
+const store = useCardStore();
+const showPanel = ref(false);
 
 onMounted(() => {
   store.fetchCards();
 });
-
 </script>
 
 <template>
   <div class="common-layout">
     <el-container>
       <el-header>
-        <select v-model="tempSelectedItem">
-          <option disabled selected>请选择...</option>
+        <select v-model="tempSelectedId">
+          <option disabled>请选择...</option>
           <option v-for="item in cards" :key="item.id" :value="item.id">
             {{ item.name }}
           </option>
@@ -39,7 +39,6 @@ onMounted(() => {
           />
         </div>
         <AddPanel v-if="showPanel" @close="showPanel = false" />
-        
       </el-main>
     </el-container>
   </div>

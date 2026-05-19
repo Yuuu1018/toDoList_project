@@ -13,7 +13,7 @@ export const useCardStore = defineStore("card", () => {
   const selectedId = ref<string>("");
   const loading = ref(false);
 
-  const selectedItem = computed(() => {
+  const selectedCard = computed(() => {
     return cards.value.find((card) => card.id === selectedId.value) ?? null;
   });
 
@@ -49,7 +49,7 @@ export const useCardStore = defineStore("card", () => {
   return {
     cards,
     selectedId,
-    selectedItem,
+    selectedCard,
     setSelected,
     loading,
     fetchCards,
