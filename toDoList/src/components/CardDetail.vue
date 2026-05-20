@@ -12,17 +12,18 @@
 <template>
   <div class="card">
     <el-row :gutter="20">
-    <el-col :span="12"><div class="grid-content ep-bg-purple" ><h2>{{ card.name }}</h2></div></el-col>
-    <el-col :span="12">
+    <el-col :span="22"><div class="grid-content ep-bg-purple" ><h2>{{ card.name }}</h2></div>
+    <p>截至时间：{{ card.time }}</p>
+    <p>内容：{{ card.description }}</p>
+    </el-col>
+    <el-col :span="2">
       <div class="grid-content ep-bg-purple" >
-        <p @click="remove">
-        删除
-        </p>
+        <el-button type="primary" @click="remove">
+          删除
+        </el-button>
       </div>
     </el-col>
     </el-row>
-    <p>截至时间：{{ card.time }}</p>
-    <p>内容：{{ card.description }}</p>
   </div>
 </template>
 

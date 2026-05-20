@@ -14,6 +14,7 @@ declare module 'vue' {
     AddPanel: typeof import('./src/components/AddPanel.vue')['default']
     CardDetail: typeof import('./src/components/CardDetail.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']

@@ -34,7 +34,6 @@ export const useCardStore = defineStore("card", () => {
     try {
       const { data } = await itemApi.addItem(card);
       cards.value.push(data);
-      selectedId.value = data.id; // 添加成功后，将新添加的卡片设置为选中状态
     } catch (e) {
       console.error("添加卡片失败:", e);
     } finally {
@@ -46,6 +45,19 @@ export const useCardStore = defineStore("card", () => {
     selectedId.value = id;
   }
 
+  async function removeStoredCard(id: string) {
+    loading.value = true;
+    try{
+      await itemApi.removeItem(id);
+      cards.value.splice(cards.value.findIndex((card) => card.id === id), 1);
+    }catch (e) {
+      console.error("删除卡片失败:", e);
+    } finally {
+      loading.value = false;
+    }
+  }
+  
+  
   return {
     cards,
     selectedId,
@@ -54,5 +66,6 @@ export const useCardStore = defineStore("card", () => {
     loading,
     fetchCards,
     addCard,
+    removeStoredCard
   };
 });

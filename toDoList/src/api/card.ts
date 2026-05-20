@@ -6,4 +6,5 @@ const http = axios.create({baseURL: ''});
 export const itemApi = {
   fetchItems: () => http.get<CardItem[]>('/api/cards'),
   addItem:(data:Omit<CardItem, 'id'>) => http.post<CardItem>('/api/cards', data),
+  removeItem:(id: string) => http.delete(`/api/cards/`, { data: { id } }),
 }

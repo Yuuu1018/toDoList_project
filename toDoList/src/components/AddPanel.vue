@@ -42,7 +42,7 @@
 </script>
 
 <template>
-  <el-form :model="form" label-width="auto" style="max-width: 600px">
+  <el-form :model="form" label-width="auto">
     <el-form-item label="任务名称">
       <el-input v-model="form.name" />
     </el-form-item>

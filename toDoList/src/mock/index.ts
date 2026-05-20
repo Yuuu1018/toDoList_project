@@ -19,3 +19,9 @@ mock.mock('/api/cards', 'post', (options: { body: string; }) => {
   db.push(newCard);
   return newCard;
 })
+
+mock.mock("/api/cards", "delete", (options: { body: string }) => {
+  const body = JSON.parse(options.body) as { id: string };
+  db.splice(db.findIndex((card) => card.id === body.id), 1);
+  return { message: "删除成功" };
+});
